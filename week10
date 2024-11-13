@@ -11,3 +11,102 @@ int main()
 	else if(BMI<24) cout<<"standard";
 	else cout <<"too fat";
 }
+/// week10-2.cpp 練習 class
+#include <iostream>
+using namespace std;
+class Mouse{
+public:
+    void print(){
+    cout << "I am mouse, mou mou\n";
+    }
+};
+class Cat{
+public:
+    void print(){
+        cout << "I am a cat, meow meow\n";
+    }
+};
+int main()
+{
+    Mouse mouse1,mouse2;
+    Cat cat1,cat2;
+    mouse1.print();
+    mouse2.print();
+    cat1.print();
+    cat2.print();
+
+}
+/// week10-3.cpp 要練習class 放很多的資料
+#include <iostream>
+#include <string>
+using namespace std;
+class Cat{
+public:
+    string name;
+    void print(){
+        cout << "I am a cat. My name is " << name << ".\n";
+    }
+};
+
+int main()
+{
+    Cat cat1,cat2;
+    cat1.name="小花";
+    cat1.print();
+    cat2.name="小白";
+    cat2.print();
+}
+///week10-4
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Cat{
+public:
+    string name;
+    Cat(string _name){
+        name= _name;
+    }
+    void print(){
+        cout << "My name is " << name << ".\n";
+    }
+};
+
+int main()
+{
+    Cat cat1("小白"),cat2("小花");
+    cat1.print();
+    cat2.print();
+}
+// week10-5.cpp 學習計畫 math 第四題
+// Leetcode 976. Largest Perimeter Triangle
+class Solution {
+public:
+    int largestPerimeter(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int N = nums.size();
+        for(int i=0;i<N-2;i++){
+        int big = nums[N-1-i], middle = nums[N-2-i], small = nums[N-3-i];
+        if(middle+small > big) return big+middle+small;
+        }
+        return 0;
+        }
+};
+// week10-6.cpp 學習計畫第8題
+// Leetcode 1822. Sign of the Product of an Array
+class Solution {
+public:
+    int arraySign(vector<int>& nums) {
+        // 全部乘起來的正負號
+        int total=1;
+        for(int i=0;i<nums.size();i++){
+            //total *= nums[i];
+            if(nums[i]>0) total *= 1;
+            if(nums[i]<0) total *= -1;
+            if(nums[i]==0) total *= 0;
+        }
+        if(total>0) return 1;
+        if(total<0) return -1;
+        return 0;
+    }
+};
